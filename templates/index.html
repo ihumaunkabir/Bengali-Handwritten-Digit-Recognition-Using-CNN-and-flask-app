@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>হ্যালো ২৪৪১১৩৯</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>'হ্যালো ২৪৪১১৩৯' - হাতের লেখা থেকে বাংলা অংক রুপান্তর টুল <br> Bangla Handwritten Digit Recognition using CNN</h1>
+
+<canvas id="canvas" width="280" height="280"
+        style="border:8px solid; float: left; margin: 70px; margin-top:160px;  border-radius: 5px; cursor: crosshair;">
+
+</canvas>
+<div id="debug" style="margin:65px; margin-top:100px;">
+
+
+    <input type="button" id="clearButton" value="ক্যানভাস পরিষ্কার করুন" style="">
+    <br/>
+    <span style="color: green; font-weight: 400; font-family: 'Open Sans', Helvetica;	">যতদুর সম্ভব বড় করে আঁকুন :) </span>
+</div>
+
+<div style="margin-left:175px; margin-top:460px; float:left; position:absolute;">
+
+    <a href="#" class="myButton">
+        <span style=" font-weight: 400; font-family: 'Open Sans', Helvetica; "> ছবিটি সাবমিট করুন </span>
+    </a>
+</div>
+<div>
+    <h1 id="result" style="margin-right:20px; margin-top:300px;float:left;"><span> </span></h1>
+</div>
+
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script src="{{ url_for('static',filename='index.js') }}"></script>
+<script type="text/javascript">
+	   		$(".myButton").click(function(){
+	   			var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+	   			var canvasObj = document.getElementById("canvas");
+	   			var img = canvasObj.toDataURL();
+	   			
+	   			$.ajax({
+	   				type: "POST",
+	   				url: $SCRIPT_ROOT + "/predict/",
+	   				data: img,
+	   				success: function(data){
+	
+	   					if(data[1] == 0){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ০');
+	   					}
+	   					else if(data[1] == 1){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ১');
+	   					}
+	   					else if(data[1] == 2){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ২');
+	   					}
+	   					else if(data[1] == 3){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ৩');
+	   					}
+	   					else if(data[1] == 4){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ৪');
+	   					}
+	   					else if(data[1] == 5){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ৫');
+	   					}
+	   					else if(data[1] == 6){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ৬');
+	   					}
+	   					else if(data[1] == 7){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ৭');
+	   					}
+	   					else if(data[1] == 8){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ৮');
+	   					}
+	   					else if(data[1] == 9){
+	   						$('#result').text(' সম্ভাব্য অংকটি: ৯');
+	   					}
+	   				}
+	   			});
+	   		});
+
+
+
+
+</script>
+</body>
+</html>
