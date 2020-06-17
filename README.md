@@ -12,7 +12,7 @@ To get a local copy up and running follow these simple steps.
 * Anaconda 4.6.2
 * Python 3.6.8
 * Flask 1.0.2
-* More details in <i>requirements.txt</i>
+* More details in [requirements.txt](https://github.com/oasiscse/Bengali-Handwritten-Digit-Recognition-Using-CNN-and-flask-app/blob/master/requirements.txt)
 
 ### Installation
  
