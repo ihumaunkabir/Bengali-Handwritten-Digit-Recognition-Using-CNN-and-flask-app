@@ -1,7 +1,7 @@
 ## Bengali-Handwritten-Digit-Recognition-Using-CNN-and-flask-app
 
 A Bengali Digit Recognizer app built in flask framework which is served by a model implemented in Convolutional Neural Network - CNN.  
-Disclaimer: The source code includes the flask app and intentionally the model's souce code is not included here, instead the pre-trained weights are used.
+Disclaimer: The source code includes the flask app and intentionally the model's source code is not included here, instead the pre-trained weights are used.
 
 
 ## Getting Started
